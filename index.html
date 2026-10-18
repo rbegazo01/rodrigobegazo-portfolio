@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Rodrigo Begazo — Filmmaker & Visual Storyteller. Film, cinematography and visual storytelling.">
+  <title>Rodrigo Begazo — Filmmaker & Visual Storyteller</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090909;
+      --surface: #111111;
+      --text: #f3f0e9;
+      --muted: #92918c;
+      --line: #292929;
+      --accent: #d5ff65;
+      --mono: "DM Mono", monospace;
+      --sans: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1440px, 100% - 64px);
+      margin-inline: auto;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .muted { color: var(--muted); }
+
+    header {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .brand span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      font-size: 12px;
+      color: #c7c5bf;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .nav-contact {
+      border: 1px solid #555;
+      padding: 11px 15px;
+    }
+
+    .hero {
+      min-height: 670px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 76px;
+      padding-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(54px, 10.5vw, 148px);
+      line-height: .88;
+      letter-spacing: -.09em;
+      font-weight: 600;
+      margin: 48px 0 26px;
+      max-width: 1100px;
+    }
+
+    h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px #85847e;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 45px;
+    }
+
+    .intro {
+      max-width: 390px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #b6b4ad;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background: var(--accent);
+      color: #111;
+      padding: 16px 20px;
+      font-size: 12px;
+      font-weight: 800;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #e1ff91;
+    }
+
+    .hero-image {
+      position: relative;
+      height: clamp(260px, 45vw, 570px);
+      overflow: hidden;
+      background: #202020;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+      filter: brightness(.72) saturate(.72);
+      display: block;
+      transition: transform 1s;
+    }
+
+    .hero-image:hover img { transform: scale(1.025); }
+
+    .image-label {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: calc(100% - 48px);
+      color: white;
+      text-shadow: 0 1px 8px #000;
+    }
+
+    section { padding: 110px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 64px);
+      letter-spacing: -.07em;
+      line-height: 1;
+      font-weight: 500;
+      margin: 14px 0 0;
+    }
+
+    .section-head p {
+      max-width: 300px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px 20px;
+    }
+
+    .project { min-width: 0; }
+
+    .project-image {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #191919;
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.75) brightness(.83);
+      transition: transform .6s, filter .6s;
+    }
+
+    .project:hover img {
+      transform: scale(1.04);
+      filter: saturate(1) brightness(.98);
+    }
+
+    .project-image .number {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      color: white;
+      text-shadow: 0 1px 5px black;
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 17px;
+    }
+
+    .project-info h3 {
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -.04em;
+      margin: 0 0 7px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 11px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin: 0;
+    }
+
+    .arrow { color: var(--accent); font-size: 21px; }
+
+    .about {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0d0d0d;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about h2 {
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: .98;
+      letter-spacing: -.075em;
+      font-weight: 500;
+      margin: 20px 0;
+    }
+
+    .about-copy {
+      max-width: 630px;
+      padding-top: 38px;
+    }
+
+    .about-copy p {
+      color: #b9b7b0;
+      font-size: 16px;
+      line-height: 1.95;
+      margin: 0 0 20px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+      margin-top: 42px;
+    }
+
+    .service {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .service:nth-child(odd) { margin-right: 22px; }
+
+    .contact {
+      padding-bottom: 120px;
+    }
+
+    .contact-panel {
+      padding: clamp(30px, 7vw, 88px);
+      border: 1px solid #303030;
+      background:
+        radial-gradient(ellipse at 100% 0%, #252a1c 0%, transparent 48%),
+        #101010;
+    }
+
+    .contact h2 {
+      font-size: clamp(44px, 9vw, 112px);
+      line-height: .94;
+      letter-spacing: -.08em;
+      font-weight: 500;
+      margin: 30px 0;
+    }
+
+    .contact-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+    }
+
+    .contact-bottom p {
+      max-width: 350px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 36px); }
+
+      header { height: 68px; }
+      nav { gap: 16px; }
+      nav a { font-size: 11px; }
+      nav .nav-work { display: none; }
+
+      .hero {
+        min-height: 590px;
+        padding-top: 60px;
+      }
+
+      h1 { margin-top: 40px; }
+
+      .hero-bottom {
+        align-items: start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      section { padding: 76px 0; }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .project-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 0; }
+      .about-copy { padding-top: 10px; }
+
+      .contact-bottom {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <a class="brand" href="#home">RODRIGO BEGAZO<span>.</span></a>
+
+    <nav aria-label="Main navigation">
+      <a class="nav-work" href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a class="nav-contact" href="#contact">LET'S TALK ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <div class="eyebrow mono">
+          <span class="dot"></span>
+          FILMMAKER · VISUAL STORYTELLER
+        </div>
+
+        <h1>
+          STORIES<br>
+          <span class="outline">IN MOTION.</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="intro">
+            I create cinematic images and visual experiences
+            driven by emotion, atmosphere and human stories.
+          </p>
+          <a class="button" href="#work">EXPLORE MY WORK <span>↘</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=85"
+        alt="Cinematic film production equipment"
+      >
+      <div class="image-label mono">
+        <span>THE ART OF VISUAL STORYTELLING</span>
+        <span>RB / 001</span>
+      </div>
+    </div>
+
+    <section class="container" id="work">
+      <div class="section-head reveal">
+        <div>
+          <div class="mono muted">01 / SELECTED PROJECTS</div>
+          <h2>Frames that<br>stay with you.</h2>
+        </div>
+        <p>
+          A selection of films, visual experiments and creative
+          work. Each project is a different way of seeing.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project reveal">
+          <a class="project-image" href="#contact" aria-label="Ask about Project 01">
+            <img
+              src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85"
+              alt="Moody cinematic theater"
+              loading="lazy"
+            >
+            <span class="number mono">PROJECT / 01</span>
+          </a>
+          <div class="project-info">
+            <div>
+              <h3>Three</h3>
+              <p>Film · Cinematography</p>
+            </div>
+            <a class="arrow" href="#contact" aria-label="Ask about Three">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <a class="project-image" href="#contact" aria-label="Ask about Project 02">
+            <img
+              src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85"
+              alt="Night sky above a dramatic landscape"
+              loading="lazy"
+            >
+            <span class="number mono">PROJECT / 02</span>
+          </a>
+          <div class="project-info">
+            <div>
+              <h3>Visual Studies</h3>
+              <p>Experimental · Visuals</p>
+            </div>
+            <a class="arrow" href="#contact" aria-label="Ask about Visual Studies">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <a class="project-image" href="#contact" aria-label="Ask about Project 03">
+            <img
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=85"
+              alt="Camera equipment for filmmaking"
+              loading="lazy"
+            >
+            <span class="number mono">PROJECT / 03</span>
+          </a>
+          <div class="project-info">
+            <div>
+              <h3>Behind the Frame</h3>
+              <p>Behind the scenes · Film</p>
+            </div>
+            <a class="arrow" href="#contact" aria-label="Ask about Behind the Frame">↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <a class="project-image" href="#contact" aria-label="Ask about Project 04">
+            <img
+              src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=85"
+              alt="Atmospheric cinema scene"
+              loading="lazy"
+            >
+            <span class="number mono">PROJECT / 04</span>
+          </a>
+          <div class="project-info">
+            <div>
+              <h3>Human Stories</h3>
+              <p>Documentary · Storytelling</p>
+            </div>
+            <a class="arrow" href="#contact" aria-label="Ask about Human Stories">↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="mono muted">02 / THE PERSON BEHIND THE CAMERA</div>
+          <h2>More than<br>an image.</h2>
+        </div>
+
+        <div class="about-copy reveal">
+          <p>
+            I'm Rodrigo Begazo, a filmmaker and visual storyteller
+            interested in the relationship between images, emotion
+            and the human experience.
+          </p>
+          <p>
+            My approach brings together composition, movement,
+            light and atmosphere to create images with a purpose:
+            to make people feel something.
+          </p>
+          <p>
+            From narrative films to music and creative projects,
+            I'm always looking for new ways to tell stories.
+          </p>
+
+          <div class="services">
+            <div class="service">01 — Filmmaking</div>
+            <div class="service">02 — Cinematography</div>
+            <div class="service">03 — Video Editing</div>
+            <div class="service">04 — Visual Content</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact container" id="contact">
+      <div class="contact-panel reveal">
+        <div class="mono muted">03 / HAVE A STORY IN MIND?</div>
+        <h2>Let's make<br>something<br><span class="outline">meaningful.</span></h2>
+
+        <div class="contact-bottom">
+          <p>
+            Have a film, music video or creative project in mind?
+            Let's talk about what we can create together.
+          </p>
+
+          <!-- Replace the email below with your real contact email -->
+          <a class="button" href="mailto:hello@rodrigobegazo.com">
+            GET IN TOUCH <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container mono">
+    <span>© <span id="year"></span> RODRIGO BEGAZO</span>
+    <span>FILMMAKER & VISUAL STORYTELLER</span>
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
