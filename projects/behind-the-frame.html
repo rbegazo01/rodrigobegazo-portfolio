@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Behind the Frame — a project by Rodrigo Begazo, filmmaker and visual storyteller.">
+  <title>Behind the Frame — Rodrigo Begazo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#090909; --text:#f3f0e9; --muted:#92918c; --line:#292929; --accent:#d5ff65; --mono:"DM Mono",monospace; --sans:"Manrope",sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1200px,100% - 64px); margin-inline:auto; }
+    .mono { font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.12em; }
+    header { height:78px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .brand { font-size:14px; font-weight:800; letter-spacing:-.04em; } .brand span { color:var(--accent); }
+    .back { font-size:12px; color:#c7c5bf; } .back:hover { color:var(--accent); }
+    main { padding:76px 0 100px; }
+    .eyebrow { color:var(--muted); margin-bottom:22px; }
+    h1 { font-size:clamp(48px,9vw,112px); line-height:.94; letter-spacing:-.08em; font-weight:500; margin:0 0 22px; }
+    .category { color:var(--accent); margin-bottom:28px; }
+    .intro { max-width:700px; color:#b9b7b0; font-size:17px; line-height:1.8; margin:0 0 46px; }
+    .media { width:100%; aspect-ratio:16/9; background:#171717; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; color:var(--muted); }
+    .media p { max-width:440px; line-height:1.8; }
+    .content { display:grid; grid-template-columns:1.2fr .8fr; gap:70px; padding-top:64px; }
+    h2 { font-size:28px; letter-spacing:-.05em; font-weight:500; margin:0 0 18px; }
+    .copy { color:#b9b7b0; font-size:15px; line-height:1.9; }
+    .details { border-top:1px solid var(--line); }
+    .detail { padding:16px 0; border-bottom:1px solid var(--line); }
+    .detail .label { color:var(--muted); margin-bottom:8px; }
+    .detail .value { font-size:14px; line-height:1.6; }
+    .contact { margin-top:72px; padding:32px; border:1px solid #303030; }
+    .contact p { color:var(--muted); line-height:1.8; }
+    .button { display:inline-block; background:var(--accent); color:#111; padding:15px 18px; font-size:12px; font-weight:800; }
+    footer { border-top:1px solid var(--line); padding:24px 0; color:var(--muted); display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:700px) { .container { width:calc(100% - 36px); } header { height:68px; } main { padding-top:54px; } .content { grid-template-columns:1fr; gap:36px; } footer { flex-direction:column; font-size:10px; } }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <a class="brand" href="../index.html">RODRIGO BEGAZO<span>.</span></a>
+    <a class="back mono" href="../index.html#work">← ALL PROJECTS</a>
+  </header>
+  <main class="container">
+    <div class="eyebrow mono">PROJECT / PORTFOLIO</div>
+    <h1>Behind the Frame</h1>
+    <div class="category mono">Behind the scenes · Film</div>
+    <p class="intro">A look at the creative process behind a film production.</p>
+    <div class="media">
+      <p><strong>PROJECT IMAGE / VIDEO PLACEHOLDER</strong><br>
+      Replace this area with your real still, photo, or embedded film.<br>
+      Suggested image path: <code>../assets/projects/behind-the-frame-hero.jpg</code></p>
+    </div>
+    <div class="content">
+      <section>
+        <h2>About the project</h2>
+        <p class="copy">Describe the production, the challenge and the result.</p>
+        <h2 style="margin-top:38px">Creative approach</h2>
+        <p class="copy">Use this section to explain the visual language, cinematography, lighting, editing choices, references, and the story you wanted to tell. Replace this sample copy with details from the real project.</p>
+      </section>
+      <aside class="details">
+        <div class="detail"><div class="label mono">MY ROLE</div><div class="value">Add your role and any collaborators to credit.</div></div>
+        <div class="detail"><div class="label mono">FORMAT</div><div class="value">Add format / runtime</div></div>
+        <div class="detail"><div class="label mono">YEAR</div><div class="value">Add year</div></div>
+        <div class="detail"><div class="label mono">CREDITS</div><div class="value">Add collaborators and production credits</div></div>
+      </aside>
+    </div>
+    <section class="contact">
+      <div class="mono">HAVE A PROJECT IN MIND?</div>
+      <h2 style="margin-top:18px">Let's make something meaningful.</h2>
+      <p>For collaborations, filmmaking, cinematography and editing inquiries.</p>
+      <a class="button" href="mailto:hello@rodrigobegazo.com">GET IN TOUCH ↗</a>
+    </section>
+  </main>
+  <footer class="container mono">
+    <span>© <span id="year"></span> RODRIGO BEGAZO</span>
+    <a href="../index.html#work">BACK TO PROJECTS ↑</a>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
